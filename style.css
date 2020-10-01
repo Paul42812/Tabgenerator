@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: gray;
+}
+
+h1 {
+    color: white;
+    font-size: 4rem;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 20vh;
+}
+
+span {
+    color: yellow;
+}
+
+span.black {
+    color: rgb(0, 0, 0);
+}
+
+span.dark_blue {
+    color: rgb(0, 0, 170);
+}
+
+span.dark_green {
+    color: rgb(0, 170, 0);
+}
+
+span.dark_aqua {
+    color: rgb(170, 170, 0);
+}
+
+span.dark_red {
+    color: darkred;
+}
+
+span.gold {
+    color: gold;
+}
+
+span.gray {
+    color: gray;
+}
+
+span.dark_gray {
+    color: darkgray;
+}
+
+span.blue {
+    color: blue;
+}
+
+span.green {
+    color: green;
+}
+
+span.aqua {
+    color: aqua;
+}
+
+span.red {
+    color: red;
+}
+
+span.light_purple {
+    color: lightpink;
+}
+
+span.yellow {
+    color: yellow;
+}
+
+span.white {
+    color: white;
+}
+
+span.dark_purple {
+    color: purple;
+}
+
+form {
+    float: left;
+}
+
+p.label {
+    float: left;
+    font-size: 2rem;
+    font-family: sans-serif;
+}

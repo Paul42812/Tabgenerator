@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script src="index.js" async></script>
+    <h1 class="titlec"></h1>
+    <h2 class="speed" id="sp"></h2>
+
+    <form>
+        <p class="delaylabel margintop">Delay</p>
+        <input class="textbox" type="text" id="speed">
+
+        <br>
+        <br>
+
+
+        <p class="textlabel margintop">Text</p>
+        <input class="textbox" type="text" id="text">
+
+        <br>
+        <br>
+
+        <p class="fgcolorlabel margintop">ForeColor</p>
+        <select id="fgcolors">
+        <option value="" selected>Choose here</option>
+        <option value="&0">black</option>
+        <option value="&1">dark blue</option>
+        <option value="&2">dark green</option>
+        <option value="&3">dark aqua</option>
+        <option value="&4">dark red</option>
+        <option value="&5">dark purple</option>
+        <option value="&6">gold</option>
+        <option value="&7">gray</option>
+        <option value="&8">dark gray</option>
+        <option value="&9">blue</option>
+        <option value="&a">green</option>
+        <option value="&b">aqua</option>
+        <option value="&c">red</option>
+        <option value="&d">light purple</option>
+        <option value="&e">yellow</option>
+        <option value="&f">white</option>
+        </select>
+
+
+        <br>
+        <br>
+
+        <p class="bgcolorlabel margintop">BackColor</p>
+        <select name="colors" id="bgcolors">
+        <option value="" selected>Choose here</option>
+        <option value="&0">black</option>
+        <option value="&1">dark blue</option>
+        <option value="&2">dark green</option>
+        <option value="&3">dark aqua</option>
+        <option value="&4">dark red</option>
+        <option value="&5">dark purple</option>
+        <option value="&6">gold</option>
+        <option value="&7">gray</option>
+        <option value="&8">dark gray</option>
+        <option value="&9">blue</option>
+        <option value="&a">green</option>
+        <option value="&b">aqua</option>
+        <option value="&c">red</option>
+        <option value="&d">light purple</option>
+        <option value="&e">yellow</option>
+        <option value="&f">white</option>
+      </select>
+
+        <br>
+        <br>
+
+        <button type="button" onclick="updatetext();">Update Settings</button>
+
+        <br>
+        <textarea id="textfield" name="textfield" rows="20" cols="50"></textarea>
+    </form>
+    <!--
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe">
+    </form>
+    -->
+</body>
+
+</html>
