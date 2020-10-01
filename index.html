@@ -14,20 +14,12 @@
     <h1 class="titlec"></h1>
     <h2 class="speed" id="sp"></h2>
 
-    <form>
+    <div class="wrapper">
+    <form class="mc-form">
         <p class="delaylabel margintop">Delay</p>
         <input class="textbox" type="text" id="speed">
-
-        <br>
-        <br>
-
-
         <p class="textlabel margintop">Text</p>
         <input class="textbox" type="text" id="text">
-
-        <br>
-        <br>
-
         <p class="fgcolorlabel margintop">ForeColor</p>
         <select id="fgcolors">
         <option value="" selected>Choose here</option>
@@ -48,11 +40,6 @@
         <option value="&e">yellow</option>
         <option value="&f">white</option>
         </select>
-
-
-        <br>
-        <br>
-
         <p class="bgcolorlabel margintop">BackColor</p>
         <select name="colors" id="bgcolors">
         <option value="" selected>Choose here</option>
@@ -73,15 +60,10 @@
         <option value="&e">yellow</option>
         <option value="&f">white</option>
       </select>
-
-        <br>
-        <br>
-
         <button type="button" onclick="updatetext();">Update Settings</button>
-
-        <br>
-        <textarea id="textfield" name="textfield" rows="20" cols="50"></textarea>
     </form>
+    <textarea id="textfield" name="textfield" rows="20" cols="50"></textarea>
+    </div>
     <!--
     <form>
         <label for="fname">First name:</label><br>
