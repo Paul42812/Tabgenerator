@@ -7,25 +7,22 @@
 body {
     background: gray;
 }
-.wrapper 
-{
-	display:flex;
-	justify-content:center;
+
+.wrapper {
+    display: flex;
+    justify-content: center;
 }
-.mc-form
-{
-	justify-content:center;
+
+.mc-form {
+    justify-content: center;
 }
+
 h1 {
     color: white;
     font-size: 4rem;
     font-family: sans-serif;
     text-align: center;
     line-height: 20vh;
-}
-
-span {
-    color: yellow;
 }
 
 span.black {

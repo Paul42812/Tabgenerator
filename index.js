@@ -1,177 +1,92 @@
+var char = 0;
 const text = document.querySelector(".titlec");
+text.textContent = "";
+var timer;
+
+var delay = 1000;
 var strText = "ExampleText123";
+var fg = "blue";
+var bg = "dark_gray";
+
 var splitText = strText.split("");
 
-text.textContent = "";
+function update() {
+    splitText = strText.split("");
+    text.textContent = "";
+    for (let i = 0; i < splitText.length; i++) {
+        text.innerHTML += "<span>" + splitText[i] + "</span>"
+    }
+    char = 0;
 
-for (let i = 0; i < splitText.length; i++) {
-    text.innerHTML += "<span>" + splitText[i] + "</span>"
+    var t = document.querySelectorAll('span');
+    for (let c = 0; c < t.length; c++) {
+        try {
+            t[c].classList.add(bg)
+        } catch {}
+    }
+
+    clearInterval(timer)
+    timer = setInterval(onTick, delay)
 }
 
-let char = 0;
-var timer;
-timer = setInterval(onTick, 500);
+update();
 
 function onTick() {
     if (char < splitText.length) {
         const span = text.querySelectorAll('span')[char];
 
-        var e = document.getElementById("fgcolors");
-        var strUser = e.options[e.selectedIndex].value;
-
-        if (String(strUser) == '&0') {
-            console.log(strUser)
-            span.classList.add('black');
-        }
-
-        if (String(strUser) == '&1') {
-            console.log(strUser)
-            span.classList.add('dark_blue');
-        }
-
-        if (String(strUser) == '&2') {
-            console.log(strUser)
-            span.classList.add('dark_green');
-        }
-
-        if (String(strUser) == '&3') {
-            console.log(strUser)
-            span.classList.add('dark_aqua');
-        }
-
-        if (String(strUser) == '&4') {
-            console.log(strUser)
-            span.classList.add('dark_red');
-        }
-
-        if (String(strUser) == '&5') {
-            console.log(strUser)
-            span.classList.add('dark_purple');
-        }
-
-        if (String(strUser) == '&6') {
-            console.log(strUser)
-            span.classList.add('gold');
-        }
-
-        if (String(strUser) == '&7') {
-            console.log(strUser)
-            span.classList.add('gray');
-        }
-
-        if (String(strUser) == '&8') {
-            console.log(strUser)
-            span.classList.add('dark_gray');
-        }
-
-        if (String(strUser) == '&9') {
-            console.log(strUser)
-            span.classList.add('blue');
-        }
-
-        if (String(strUser) == '&a') {
-            console.log(strUser)
-            span.classList.add('green');
-        }
-
-        if (String(strUser) == '&b') {
-            console.log(strUser)
-            span.classList.add('aqua');
-        }
-
-        if (String(strUser) == '&c') {
-            console.log(strUser)
-            span.classList.add('red');
-        }
-
-        if (String(strUser) == '&d') {
-            console.log(strUser)
-            span.classList.add('light_purple');
-        }
-
-        if (String(strUser) == '&e') {
-            console.log(strUser)
-            span.classList.add('yellow');
-        }
-
-        if (String(strUser) == '&f') {
-            console.log(strUser)
-            span.classList.add('white');
-        }
-
-
+        span.classList.add(fg);
+        try {
+            span.classList.remove(bg);
+        } catch {}
     }
     if (char > 0) {
         const spanafter = text.querySelectorAll('span')[char - 1];
-        spanafter.classList.remove('orange');
-        spanafter.classList.remove('black');
-        spanafter.classList.remove('dark_blue');
-        spanafter.classList.remove('dark_green');
-        spanafter.classList.remove('dark_aqua');
-        spanafter.classList.remove('dark_red');
-        spanafter.classList.remove('dark_purple');
-        spanafter.classList.remove('gold');
-        spanafter.classList.remove('gray');
-        spanafter.classList.remove('dark_aqua');
-        spanafter.classList.remove('dark_gray');
-        spanafter.classList.remove('green');
-        spanafter.classList.remove('blue');
-        spanafter.classList.remove('aqua');
-        spanafter.classList.remove('red');
-        spanafter.classList.remove('light_purple');
-        spanafter.classList.remove('yellow')
-        spanafter.classList.remove('white')
+
+        spanafter.classList.remove(fg);
+        try {
+            spanafter.classList.add(bg)
+        } catch {}
     }
     char++
-    if (char === splitText.length + 1) {
+    if (char == splitText.length + 1) {
         char = 0;
         return;
     }
-
 }
 
 function updatetext() {
-    var inputVal = document.getElementById('text').value;
-    if (inputVal.length == 0) {
-        inputVal = "ExampleText123"
-        alert('"Text" needs to contain a string')
+    if (document.getElementById("speed").value < 50) {
+        alert('Your delay is too short');
+        delay = 50;
+    } else {
+        delay = document.getElementById("speed").value;
     }
 
-    splitText = (String(inputVal)).split("");
-
-    char = 0;
-    text.innerHTML = "";
-    for (let i = 0; i < splitText.length; i++) {
-        text.innerHTML += "<span>" + splitText[i] + "</span>"
+    if (document.getElementById("text").value.length == 0) {
+        alert('Your text semes empty I`ll set it to "ExampleText123" for you')
+        strText = "ExampleText123";
+    } else {
+        strText = document.getElementById("text").value;
     }
 
-    var inputVal = document.getElementById('speed').value;
-    if (inputVal.length == 0) {
-        inputVal = 500
-        alert('"Delay" needs to contain an intager')
-    }
-    const parsed = parseInt(inputVal, 10);
-    clearInterval(timer);
-    timer = setInterval(onTick, parsed);
-    char = 0;
+    var fgcolors = document.getElementById("fgcolors");
+    var fgcolorsv = fgcolors.options[fgcolors.selectedIndex];
+    fg = fgcolorsv.innerHTML.replace(' ', '_');
+    var a = fgcolorsv = fgcolors.options[fgcolors.selectedIndex].value;
 
-    var e = document.getElementById("fgcolors");
-    var strUser = e.options[e.selectedIndex].value;
-
-    var f = document.getElementById("bgcolors");
-    var strUserr = f.options[e.selectedIndex].value;
+    var bgcolors = document.getElementById("bgcolors");
+    var bgcolorsv = bgcolors.options[bgcolors.selectedIndex];
+    bg = bgcolorsv.innerHTML.replace(' ', '_');
+    var b = bgcolorsv = bgcolors.options[bgcolors.selectedIndex].value;
 
     var s = document.getElementById('textfield')
-    var p = document.getElementById('text')
-    var formtext;
-
-    formtext = p.value;
-    a = strUserr;
-    b = strUser;
 
     s.innerHTML = "";
-    for (var i = 0; i < formtext.length; i++) {
-        s.innerHTML += (a + formtext.substring(0, i) + b + formtext[i] + a + formtext.substring(i + 1, formtext.length))
+    for (var i = 0; i < strText.length; i++) {
+        s.innerHTML += (a + strText.substring(0, i) + b + strText[i] + a + strText.substring(i + 1, strText.length))
         s.innerHTML += "\n"
     }
+
+    update();
 }
